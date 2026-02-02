@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* Neutral */
   --neutral-900: hsl(227, 75%, 14%);
@@ -21,14 +23,26 @@
   --gradient-dark: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 body {
-  background: hsl(217, 61%, 90%);
   font-family: 'Noto Sans', sans-serif;
   font-size: 1rem;
+}
+
+.btn {
+  @apply transition px-4 pt-1 pb-1 bg-white rounded-full border-neutral-600 text-[20px] font-normal dark:border dark:border-(--neutral-0);
+  @apply cursor-pointer hover:bg-(--neutral-100) focus:outline-none focus:ring-2 focus:ring-red-700 dark:text-(--neutral-0) dark:bg-(--neutral-700);
 }
 
 .active {
   background: var(--red-700);
   color: var(--neutral-0);
+  @apply dark:text-(--neutral-900) dark:bg-(--red-400) dark:border-(--neutral-900);
 }

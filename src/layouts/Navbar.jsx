@@ -13,14 +13,13 @@ const Navbar = ({ setData, status, setStatus }) => {
     }
 
     return (
-        <nav className="md:flex md:flex-row md:justify-between md:items-center md:mx-4 md:mt-10 md:mb-5 text-(--neutral-900) font-bold m-4 2xl:mx-auto max-w-360">
-            <h1 className="text-center text-3xl mt-10 mb-5 md:mt-0 md:mb-0">Extensions List</h1>
+        <nav className="md:flex md:flex-row md:justify-between md:items-center md:mx-9 md:mt-10 md:mb-5 text-(--neutral-900) font-bold m-4 2xl:mx-auto max-w-360">
+            <h1 className="text-center dark:text-(--neutral-0) text-3xl mt-10 mb-5 md:mt-0 md:mb-0">Extensions List</h1>
 
             <div className="flex flex-row gap-1.5 items-center justify-center">
                 <button
                     className={clsx(
-                        "transition px-4 pt-1 pb-1 bg-white rounded-full border-neutral-600 text-[20px] font-normal " +
-                        "cursor-pointer hover:bg-(--neutral-100) focus:outline-none focus:ring-2 focus:ring-red-700",
+                        "btn",
                         typeof status != 'boolean' && "active"
                     )}
                     onClick={() => handleChangeView()}
@@ -29,8 +28,7 @@ const Navbar = ({ setData, status, setStatus }) => {
                 </button>
                 <button
                     className={clsx(
-                        "transition px-4 pt-1 pb-1 bg-white rounded-full border-neutral-600 text-[20px] font-normal " +
-                        "cursor-pointer hover:bg-(--neutral-100) focus:outline-none focus:ring-2 focus:ring-red-700",
+                        "btn",
                         status && "active"
                     )}
                     onClick={() => handleChangeView(true)}
@@ -39,8 +37,7 @@ const Navbar = ({ setData, status, setStatus }) => {
                 </button>
                 <button
                     className={clsx(
-                        "transition px-4 pt-1 pb-1 bg-white rounded-full border-neutral-600 text-[20px] font-normal " +
-                        "cursor-pointer hover:bg-(--neutral-100) focus:outline-none focus:ring-2 focus:ring-red-700",
+                        "btn",
                         status === false && "active"
                     )}
                     onClick={() => handleChangeView(false)}
