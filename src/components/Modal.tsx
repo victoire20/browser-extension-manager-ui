@@ -1,5 +1,6 @@
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react"
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline"
+import Button from '../components/ui/Button'
 import type { Dispatch, SetStateAction } from "react"
 import type { ExtensionItem } from "../types/extension"
 import * as React from "react";
@@ -59,17 +60,16 @@ const Modal: React.FC<ModalProps> = ({ open, setOpen, item, onDelete }) => {
 
                         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6
                         dark:bg-(--neutral-700) dark:border-t dark:border-t-(--neutral-600)">
-                            <button
-                                type="button"
+                            <Button
+                                buttonType={'button'}
                                 onClick={handleConfirm}
                                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 cursor-pointer
                                 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
                             >
                                 Confirm
-                            </button>
-
-                            <button
-                                type="button"
+                            </Button>
+                            <Button
+                                buttonType={'button'}
                                 onClick={() => setOpen(false)}
                                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2
                                 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300
@@ -77,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({ open, setOpen, item, onDelete }) => {
                                 dark:bg-(--neutral-700) dark:text-(--neutral-0) dark:opacity-70"
                             >
                                 Cancel
-                            </button>
+                            </Button>
                         </div>
                     </DialogPanel>
                 </div>

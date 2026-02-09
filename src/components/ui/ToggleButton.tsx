@@ -2,6 +2,8 @@ import { clsx } from "clsx"
 import * as React from "react"
 import { ButtonHTMLAttributes } from "react"
 
+import Button from "../ui/Button"
+
 
 interface ToggleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     isActive: boolean
@@ -10,8 +12,8 @@ interface ToggleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({ isActive, onChange, ...props  }) => {
     return (
-        <button
-            type="button"
+        <Button
+            buttonType={'button'}
             className={clsx(
                 "w-16 h-8 flex items-center rounded-full p-1 transition-colors duration-300 cursor-pointer",
                 isActive ? "bg-red-700" : "bg-gray-300"
@@ -25,7 +27,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({ isActive, onChange, ...prop
                     isActive ? "translate-x-8" : "translate-x-0"
                 )}
             />
-        </button>
+        </Button>
     )
 }
 
