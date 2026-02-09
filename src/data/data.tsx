@@ -1,56 +1,45 @@
-// @ts-ignore
-import data from './data.json';
+import rawData from "./data.json"
+import type { ExtensionItem } from "../types/extension"
 
-export type ExtentionItem = {
-    id: number;
-    logo: string;
-    name: string;
-    description: string;
-    isActive: boolean;
-    isDeleted: boolean;
-};
-
-const result: ExtentionItem[] = [];
-
-/** @return ExtentionItem[] */
-export const getExtensionItems = (status?: boolean): ExtentionItem[] => {
-    if (result.length === 0) {
-        data.forEach((item) => {
-            if (!item.isDeleted) {
-                result.push({
-                    id: item.id,
-                    logo: item.logo,
-                    name: item.name,
-                    description: item.description,
-                    isActive: item.isActive,
-                    isDeleted: false,
-                });
-            }
-        })
-    }
-
-    if (typeof status === "boolean") {
-        return result.filter((item) => item.isActive === status && !item.isDeleted)
-    }
-    return result.filter((item) => !item.isDeleted)
+/**
+ * Initializes extensions from JSON
+ */
+const initExtensions = (): ExtensionItem[] => {
+    return rawData.map(item => ({
+        id: item.id,
+        logo: item.logo,
+        name: item.name,
+        description: item.description,
+        isActive: item.isActive,
+        isDeleted: false
+    }))
 }
 
-export const changeStatus = (item: ExtentionItem) => {
-    // @ts-ignore
-    const target = result.find(i => i.id === item.id)
+let extensions: ExtensionItem[] = initExtensions()
 
-    if (!target) {
-        throw new Error('This item not exist.')
-    }
-    target.isActive = !target.isActive
+/**
+ * Recover filtered extensions
+ */
+export const getExtensionItems = (
+    status: boolean | null = null
+): ExtensionItem[] => {
+    return extensions.filter(item => {
+        if (item.isDeleted) return false
+        if (status === null) return true
+        return item.isActive === status
+    })
 }
 
-export const deleteExtensionItem = (item: ExtentionItem) => {
-    // @ts-ignore
-    const target = result.find(i => i.id === item.id)
+/**
+ * Enables/disables an extension
+ */
+export const toggleExtensionStatus = (id: number): void => {
+    extensions = extensions.map(item => item.id === id ? { ...item, isActive: !item.isActive } : item)
+}
 
-    if (!target) {
-        throw new Error('This item not exist.')
-    }
-    target.isDeleted = !target.isDeleted
+/**
+ * Logically removes an extension
+ */
+export const deleteExtensionItem = (id: number): void => {
+    extensions = extensions.map(item => item.id === id ? { ...item, isDeleted: true } : item)
 }

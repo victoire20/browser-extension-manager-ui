@@ -37,12 +37,12 @@ body {
 }
 
 .btn {
-  @apply transition px-4 pt-1 pb-1 bg-white rounded-full border-neutral-600 text-[20px] font-normal dark:border dark:border-(--neutral-0);
-  @apply cursor-pointer hover:bg-(--neutral-100) focus:outline-none focus:ring-2 focus:ring-red-700 dark:text-(--neutral-0) dark:bg-(--neutral-700);
+  @apply transition px-4 pt-1 pb-1 bg-white rounded-full border-neutral-600 text-[20px] font-normal dark:border;
+  @apply cursor-pointer hover:bg-(--neutral-100) focus:outline-none focus:ring-2 focus:ring-red-700 dark:text-(--neutral-0) dark:bg-(--neutral-700) dark:hover:bg-(--neutral-300);
 }
 
 .active {
   background: var(--red-700);
   color: var(--neutral-0);
-  @apply dark:text-(--neutral-900) dark:bg-(--red-400) dark:border-(--neutral-900);
+  @apply hover:bg-(--red-400) dark:text-(--neutral-900) dark:bg-(--red-400) dark:border-(--neutral-900) dark:hover:bg-(--red-400);
 }

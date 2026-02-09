@@ -1,7 +1,7 @@
 const Header = ({ theme, toggleTheme }) => {
     return (
         <div
-            className="bg-white dark:bg-(--neutral-700) mx-9 mb-4 p-4 2xl:mx-auto max-w-360 flex flex-row items-center justify-between space-between rounded-2xl">
+            className="bg-white dark:bg-(--neutral-700) mx-9 mb-4 p-4 lg:mx-auto max-w-5xl flex flex-row items-center justify-between space-between rounded-2xl">
             <div>
                 {theme === 'light' ? (<img src="/assets/images/logo.svg" alt="logo website" />) : (<img src="/assets/images/logo-dark.svg" alt="logo website" />)}
             </div>
