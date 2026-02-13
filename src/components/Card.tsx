@@ -31,9 +31,9 @@ const Card: React.FC<CardProps> = ({ item, onToggle, onDeleteRequest, isExiting 
                     alt={`logo ${item.name}`}
                 />
                 <div>
-                    <h3 className="text-xl font-extrabold text-neutral-900 mb-1 dark:text-(--neutral-0)">
+                    <h2 className="text-xl font-extrabold text-neutral-900 mb-1 dark:text-(--neutral-0)">
                         {item.name}
-                    </h3>
+                    </h2>
                     <p className="text-[18px] dark:text-(--neutral-0) dark:opacity-70">
                         {item.description}
                     </p>

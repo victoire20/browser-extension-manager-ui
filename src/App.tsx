@@ -112,12 +112,14 @@ function App() {
                 ))}
             </main>
 
-            <Modal
-                open={open}
-                setOpen={setOpen}
-                item={selectedItem}
-                onDelete={handleDelete}
-            />
+            {open && (
+                <Modal
+                    open={open}
+                    setOpen={setOpen}
+                    item={selectedItem}
+                    onDelete={handleDelete}
+                />
+            )}
 
             <Footer />
         </div>
